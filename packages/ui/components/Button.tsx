@@ -1,12 +1,13 @@
 import style from '../styles/button.module.css'
 import { BiTrash } from 'react-icons/bi'
+import { BsGithub } from 'react-icons/bs'
 
 type Props = {
   onClick?: () => void
 }
 
 export const BtnGithub = (props: Props) => {
-  return <button {...props} className={style.btn}>Login com o Github</button>;
+  return <button {...props} className={style.btn}><BsGithub color="#fff"/> Login com o Github</button>;
 };
 
 export const BtnAdd = (props: Props) => {
