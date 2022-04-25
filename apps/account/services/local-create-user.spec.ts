@@ -1,10 +1,4 @@
-class LocalCreateUser {
-  create(params) {
-    if (!params) {
-      throw new Error()
-    }
-  }
-}
+import { LocalCreateUser } from "./local-create-user"
 
 describe('LocalCreateUser', () => {
   test('should thrwos if no provider no ony params', () => {
