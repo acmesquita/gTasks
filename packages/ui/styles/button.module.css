@@ -6,4 +6,10 @@
   color: #f1f1f1;
   font-family: sans-serif;
   font-size: medium;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: #424141;
 }
