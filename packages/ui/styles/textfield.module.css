@@ -1,0 +1,13 @@
+.textfield {
+  padding: 8px 16px;
+  font-size: medium;
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 500px;
+  color: darkslateblue;
+}
+
+.textfield:focus {
+  outline: 1px solid slategray;
+  border-radius: 4px;
+}

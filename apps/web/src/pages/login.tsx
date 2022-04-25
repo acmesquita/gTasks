@@ -11,7 +11,10 @@ export default function Login(){
       </Head>
       <main className={styles.main}>
         <div className={styles.card}>
-          <h1>Tasks Manager</h1>
+          <div className={styles.title}>
+            <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="" />
+            <h1>Tasks Manager</h1>
+          </div>
           <BtnGithub />
         </div>
       </main>

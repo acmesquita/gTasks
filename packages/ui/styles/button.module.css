@@ -13,3 +13,19 @@
 .btn:hover {
   background-color: #424141;
 }
+
+.btnAdd {
+  border: none;
+  width: 200px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #254b9c;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btnDel {
+  border: none;
+  background-color: #FFF;
+  cursor: pointer;
+}
