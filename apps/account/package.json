@@ -1,0 +1,14 @@
+{
+  "name": "account",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Catharina Mesquita",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "*",
+    "jest-mock-extended": "^2.0.4"
+  }
+}
