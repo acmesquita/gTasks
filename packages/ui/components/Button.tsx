@@ -1,7 +1,7 @@
 import style from '../styles/button.module.css'
 
 type Props = {
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const BtnGithub = (props: Props) => {
