@@ -5,7 +5,7 @@
   "author": "Catharina Mesquita",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest -i --passWithNoTests --watch"
   },
   "devDependencies": {
     "jest": "*",
