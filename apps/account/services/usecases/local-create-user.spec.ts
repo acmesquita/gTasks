@@ -1,7 +1,7 @@
-import { UserDTO } from '../domain/dto/user-dto'
-import { InvalidParams } from '../domain/errors'
-import { User } from '../domain/models/user'
-import { UserRepository } from '../domain/repositories/user-repository'
+import { UserDTO } from '../../domain/dto/user-dto'
+import { InvalidParams } from '../../domain/errors'
+import { User } from '../../domain/models/user'
+import { UserRepository } from '../../domain/repositories/user-repository'
 import { LocalCreateUser } from "./local-create-user"
 
 class UserRepositorySpy implements UserRepository {
