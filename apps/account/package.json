@@ -5,10 +5,16 @@
   "author": "Catharina Mesquita",
   "license": "MIT",
   "scripts": {
-    "test": "jest -i --passWithNoTests --watch"
+    "test": "jest -i --passWithNoTests --watch",
+    "setup": "prisma migrate dev --schema main/config/database/schema.prisma",
+    "start": "ts-node main/server.ts"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
-    "jest": "*"
+    "jest": "*",
+    "prisma": "^3.13.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.13.0"
   }
 }
