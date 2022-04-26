@@ -25,6 +25,16 @@ describe('LocalCreateUser', () => {
     await expect(sut.create).rejects.toThrowError(new InvalidParams())
   })
 
+  test('should throws InvalidParams if provider UserDTO invalid', async () => {
+    const sut = makeSut()
+    const userDTO: UserDTO = {
+      name: null,
+      avatar_url: null
+    }
+
+    await expect(() => sut.create(userDTO)).rejects.toThrowError(new InvalidParams())
+  })
+
   test('should return User when proveider UserDTO correctly', async () => {
     const sut = makeSut()
     const userDTO: UserDTO = {

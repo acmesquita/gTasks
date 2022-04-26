@@ -10,7 +10,7 @@ export class LocalCreateUser implements CreateUser{
   ){}
 
   async create(params: UserDTO): Promise<User> {
-    if (!params) {
+    if (!params || !params.name || !params.avatar_url) {
       throw new InvalidParams()
     }
     
