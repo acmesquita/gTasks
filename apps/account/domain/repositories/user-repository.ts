@@ -1,6 +1,6 @@
 import { UserDTO } from "../dto/user-dto";
 import { User } from "../models/user";
 
-export interface CreateUser {
-  create(params: UserDTO): Promise<User>
+export interface UserRepository {
+  create(userDTO: UserDTO): Promise<User>
 }
