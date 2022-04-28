@@ -1,0 +1,7 @@
+POST http://localhost:5678/users
+Content-Type: application/json
+
+{
+  "name": "Catharina",
+  "avatar_url": "any"
+}
