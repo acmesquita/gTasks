@@ -6,19 +6,15 @@ import type { UserRequest as _userPackage_UserRequest, UserRequest__Output as _u
 import type { UserResponse as _userPackage_UserResponse, UserResponse__Output as _userPackage_UserResponse__Output } from '../userPackage/UserResponse';
 
 export interface UserClient extends grpc.Client {
-  Create(argument: _userPackage_UserRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  Create(argument: _userPackage_UserRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  Create(argument: _userPackage_UserRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  Create(argument: _userPackage_UserRequest, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  create(argument: _userPackage_UserRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  create(argument: _userPackage_UserRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  create(argument: _userPackage_UserRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
-  create(argument: _userPackage_UserRequest, callback: grpc.requestCallback<_userPackage_UserResponse__Output>): grpc.ClientUnaryCall;
+  Create(metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientDuplexStream<_userPackage_UserRequest, _userPackage_UserResponse__Output>;
+  Create(options?: grpc.CallOptions): grpc.ClientDuplexStream<_userPackage_UserRequest, _userPackage_UserResponse__Output>;
+  create(metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientDuplexStream<_userPackage_UserRequest, _userPackage_UserResponse__Output>;
+  create(options?: grpc.CallOptions): grpc.ClientDuplexStream<_userPackage_UserRequest, _userPackage_UserResponse__Output>;
   
 }
 
 export interface UserHandlers extends grpc.UntypedServiceImplementation {
-  Create: grpc.handleUnaryCall<_userPackage_UserRequest__Output, _userPackage_UserResponse>;
+  Create: grpc.handleBidiStreamingCall<_userPackage_UserRequest__Output, _userPackage_UserResponse>;
   
 }
 

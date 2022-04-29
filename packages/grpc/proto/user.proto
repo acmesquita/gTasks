@@ -3,7 +3,7 @@ syntax = "proto3";
 package userPackage;
 
 service User {
-  rpc Create (UserRequest) returns (UserResponse) {}
+  rpc Create (stream UserRequest) returns (stream UserResponse) {}
 }
 
 message UserRequest {

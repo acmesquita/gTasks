@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import { PrismaClient } from '@prisma/client'
 import { UserDTO } from "../../domain/dto/user-dto";
 import { User } from "../../domain/models/user";
