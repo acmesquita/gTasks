@@ -10,5 +10,5 @@ datasource db {
 model User {
   id         String @id
   name       String
-  avatar_url String
+  avatarUrl String
 }

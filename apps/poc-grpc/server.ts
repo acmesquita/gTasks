@@ -28,6 +28,20 @@ function getServer() {
       } else {
         callback(new Error('não queria dizer ping?'), null)
       }
+    },
+    RandomNumbers: (call) => {
+      const { maxVal = 100 } = call.request
+      
+      let runCount = 0
+      const intervel = setInterval(() => {
+        runCount = ++runCount
+        call.write({ value: Math.floor(Math.random() * maxVal )})
+
+        if (runCount >= 10) {
+          clearInterval(intervel)
+          call.end()
+        }
+      }, 500)
     }
   } as RandomHandlers)
 

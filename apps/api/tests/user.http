@@ -3,5 +3,5 @@ Content-Type: application/json
 
 {
   "name": "Catharina",
-  "avatar_url": "any"
+  "avatarUrl": "https://github.com/acmesquita.png"
 }

@@ -19,13 +19,21 @@ client.waitForReady(deadline, (error) => {
 })
 
 function onClientRead() {
-  client.PingPong({ message: 'ping'}, (error, resolve) => {
-    if (error) {
-      console.error(error)
-      return
-    }
+  // client.PingPong({ message: 'ping'}, (error, resolve) => {
+  //   if (error) {
+  //     console.error(error)
+  //     return
+  //   }
 
-    console.log(resolve)
+  //   console.log(resolve)
+  // })
+
+  const stream = client.RandomNumbers({ maxVal: 43 })
+  stream.on('data', (chunk) => {
+    console.log(chunk)
+  })
+  stream.on('end', () => {
+    console.log('end =D')
   })
 }
 

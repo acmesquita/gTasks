@@ -6,12 +6,12 @@ export class UserController {
   constructor(){
   }
   
-  create(req:Request, res: Response) {
+  async create(req:Request, res: Response) {
     const createNewUserService = new CreateNewUser()
 
-    const { name, avatar_url } = req.body
+    const { name, avatarUrl } = req.body
 
-    if (!validateParams(name, avatar_url)) {
+    if (!validateParams(name, avatarUrl)) {
       return res.status(404).json({
         error: {
           msg: 'Bad Request',
@@ -20,9 +20,9 @@ export class UserController {
       })
     }
 
-    const user = createNewUserService.create({
+    const user = await createNewUserService.create({
       name,
-      avatar_url
+      avatarUrl
     })
 
     return res.json({
