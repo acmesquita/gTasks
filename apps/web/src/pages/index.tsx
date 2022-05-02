@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BtnAdd, BtnDel, Form, TextField } from 'ui';
 import { apiLocal } from '../lib/api';
 import styles from '../styles/home.module.css';
@@ -15,29 +15,17 @@ type Task = {
   avatarUrl: string
 }
 
-const tmpTasks = [
-  {
-    id: '1234',
-    contant: "Marcar Academia",
-    avatarUrl: "https://github.com/acmesquita.png",
-    createdAt: "02/05/2022",
-    done: false,
-    name: "Catharina Mesquita"
-  },
-  {
-    id: '3456',
-    contant: "Marcar pra sair para o cinema",
-    avatarUrl: "https://github.com/acmesquita.png",
-    createdAt: "02/05/2022",
-    done: false,
-    name: "Catharina Mesquita"
-  }
-]
-
 export default function Home() {
 
   const { data: session } = useSession()
-  const [tasks, setTasks] = useState<Task[]>(tmpTasks)
+  const [tasks, setTasks] = useState<Task[]>([])
+  
+  useEffect(() => {
+    apiLocal.get('/tasks')
+      .then(response => response.data)
+      .then(data => setTasks(data.tasks))
+    
+  }, [])
 
   async function createTask(content: string) {
     const data = {
