@@ -1,0 +1,8 @@
+POST http://localhost:5678/tasks
+Content-Type: application/json
+
+{
+  "name": "Catharina",
+  "avatarUrl": "https://github.com/acmesquita.png",
+  "content": "Test"
+}

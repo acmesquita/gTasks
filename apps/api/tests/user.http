@@ -1,7 +1,0 @@
-POST http://localhost:5678/users
-Content-Type: application/json
-
-{
-  "name": "Catharina",
-  "avatarUrl": "https://github.com/acmesquita.png"
-}
