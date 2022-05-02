@@ -2,7 +2,7 @@
 
 Sistema para gerenciamento de tarefas.
 
-<img src="./docs/global-arch.png" />
+<img src="./docs/arch.png" />
 
 ## Sistemas
 
