@@ -1,8 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
+import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { BtnAdd, BtnDel, Form, TextField } from 'ui';
+import { apiLocal } from '../lib/api';
 import styles from '../styles/home.module.css';
 
+
 export default function Home() {
+
+  const { data: session } = useSession()
+
+  async function createTask(content: string) {
+    const data = {
+      content,
+      name: session?.user?.name,
+      avatarUrl: session?.user?.image
+    }
+    console.log('Data', data)
+    const response = await apiLocal.post('/tasks', data)
+
+    alert(JSON.stringify(response.data, null, 2))
+  }
+
   return (
     <>
       <Head>
@@ -14,15 +33,18 @@ export default function Home() {
             <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="" />
           </div>
           <div className={styles.avatar}>
-            <img src="https://github.com/acmesquita.png" alt="" />
+            <img src={session?.user?.image || ''} alt="" />
             <div>
-              <h3>Catharina Mesquita</h3>
-              <a href="#">Sair</a>
+              <h3>{session?.user?.name}</h3>
+              <a
+                href="#"
+                onClick={() => signOut()}
+              >Sair</a>
             </div>
           </div>
         </div>
         <div className={styles.formWrapper}>
-          <Form>
+          <Form onSubmit={createTask}>
             <TextField />
             <BtnAdd />
           </Form>

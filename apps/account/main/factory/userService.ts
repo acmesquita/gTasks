@@ -5,13 +5,16 @@ import { LocalCreateUser } from "../../services/usecases/local-create-user";
 import { dbClient } from "../config/prisma";
 
 type Request = UserDTO
-type Response = User
+type Response = User | null
 
 export async function createUser(request: Request): Promise<Response> {
-  const userRepository = new PrismaUserRepository(dbClient.user)
-  const createUserUseCase = new LocalCreateUser(userRepository)
+  try {
+    const userRepository = new PrismaUserRepository(dbClient.user)
+    const createUserUseCase = new LocalCreateUser(userRepository)
+  
+    return await createUserUseCase.create(request)
+  } catch (error) {
+    throw new Error('Deu errado')
+  }
 
-  const user = await createUserUseCase.create(request)
-
-  return user
 }

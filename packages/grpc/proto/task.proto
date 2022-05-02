@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package taskPackage;
+
+service Task {
+  rpc Create (TaskRequest) returns (stream TaskResponse) {}
+}
+
+message TaskRequest {
+  string name = 1;
+  string avatarUrl = 2;
+  string content = 3;
+}
+
+message TaskResponse {
+  string id = 1;
+  string content = 2;
+  string done = 3;
+  string createdAt = 4;
+  string name = 5;
+  string avatarUrl = 6;
+}

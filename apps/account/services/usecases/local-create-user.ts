@@ -9,11 +9,13 @@ export class LocalCreateUser implements CreateUser{
     private userRepository: UserRepository
   ){}
 
-  async create(params: UserDTO): Promise<User> {
+  async create(params: UserDTO): Promise<User | null> {
     if (!params || !params.name || !params.avatarUrl) {
       throw new InvalidParams()
     }
     
-    return await this.userRepository.create(params)
+    const user = await this.userRepository.create(params)
+
+    return user
   }
 }

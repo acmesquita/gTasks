@@ -10,7 +10,10 @@ export function getUserServer() {
         name: call.request.name,
         avatarUrl: call.request.avatarUrl
       } as UserDTO)
-      call.write(user)
+      console.log('usuário cadastrado.', user)
+      if(user) {
+        call.write(user)
+      }
       call.end()
     }
   } as UserHandlers)

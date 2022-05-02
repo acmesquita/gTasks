@@ -1,9 +1,18 @@
+import { FormEvent } from 'react';
 import styles from '../styles/form.module.css'
 
 type Props = {
   children: any
+  onSubmit: (content: string) => Promise<void>
 }
 
-export const Form = ({ children }: Props) => {
-  return <form className={styles.form}>{children}</form>
+export const Form = ({ children, onSubmit }: Props) => {
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+    //@ts-ignore
+    const content = event.target.content.value
+    await onSubmit(content)
+  }
+  return <form onSubmit={handleSubmit} className={styles.form}>{children}</form>
 };

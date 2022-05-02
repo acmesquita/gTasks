@@ -1,0 +1,21 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Catharina Mesquita",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest -i --passWithNoTests --watch",
+    "setup": "prisma migrate dev --schema config/database/schema.prisma",
+    "start": "ts-node config/server"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "*",
+    "grpc": "*",
+    "prisma": "^3.13.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.13.0"
+  }
+}
