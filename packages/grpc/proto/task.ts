@@ -9,9 +9,11 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 
 export interface ProtoGrpcType {
   taskPackage: {
+    Empty: MessageTypeDefinition
     Task: SubtypeConstructor<typeof grpc.Client, _taskPackage_TaskClient> & { service: _taskPackage_TaskDefinition }
     TaskRequest: MessageTypeDefinition
     TaskResponse: MessageTypeDefinition
+    TasksResponse: MessageTypeDefinition
   }
 }
 
