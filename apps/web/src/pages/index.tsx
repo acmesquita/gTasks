@@ -80,7 +80,7 @@ export default function Home() {
         </div>
 
         <div className={styles.listWrapper}>
-          <h2 className={styles.listTitle}>Todo list</h2>
+          <h2 className={styles.listTitle}>Todo</h2>
           <ul className={styles.list}>
             <hr className={styles.divider} />
             {tasks.map((task) => {
