@@ -14,7 +14,7 @@ export class TaskController {
     if (name && avatarUrl && content) {
       const createUserService = new CreateUserService()
       const userCreated = await createUserService.create({ name, avatarUrl })
-      console.log('user criado')
+
       if (userCreated) {
         const createTask = new CreateTaskService()
         const task = await createTask.create({

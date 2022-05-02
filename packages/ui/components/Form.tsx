@@ -13,6 +13,8 @@ export const Form = ({ children, onSubmit }: Props) => {
     //@ts-ignore
     const content = event.target.content.value
     await onSubmit(content)
+    //@ts-ignore
+    event.target.content.value = ''
   }
   return <form onSubmit={handleSubmit} className={styles.form}>{children}</form>
 };

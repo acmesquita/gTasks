@@ -4,7 +4,10 @@ package taskPackage;
 
 service Task {
   rpc Create (TaskRequest) returns (stream TaskResponse) {}
+  rpc List (Empty) returns (stream TasksResponse) {}
 }
+
+message Empty {}
 
 message TaskRequest {
   string name = 1;
@@ -19,4 +22,8 @@ message TaskResponse {
   string createdAt = 4;
   string name = 5;
   string avatarUrl = 6;
+}
+
+message TasksResponse {
+  repeated TaskResponse tasks = 1;
 }

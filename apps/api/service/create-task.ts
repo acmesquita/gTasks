@@ -15,7 +15,7 @@ export class CreateTask {
         res(task)
       })
       stream.on('end', () => {
-        console.log('fim da taks')
+        console.log('fim da criação de uma taks')
       })
     })
   }

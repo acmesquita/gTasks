@@ -12,6 +12,7 @@ export class TasksController {
 
     const { name, avatarUrl, content } = req.body
 
+
     if (!validateParams(name, avatarUrl, content)) {
       return res.status(404).json({
         error: {
@@ -21,15 +22,11 @@ export class TasksController {
       })
     }
 
-    console.log('1')
-
     const task = await createTask.create({
       name,
       avatarUrl,
       content
     } as TaskDTO)
-
-    console.log('send task')
 
     return res.json({
       task: {

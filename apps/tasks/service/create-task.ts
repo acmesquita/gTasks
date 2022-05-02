@@ -12,13 +12,11 @@ export class CreateTaskService {
       userId: params.userId
     }
     try {
-      // const task = await dbClient.task.create({
-      //   data
-      // })
+      const task = await dbClient.task.create({
+        data
+      })
   
-      console.log('task criada no banco')
-  
-      // return task
+      return task
     } catch (error) {
       console.log(error)
     }

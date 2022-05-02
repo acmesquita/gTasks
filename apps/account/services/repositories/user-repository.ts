@@ -16,8 +16,6 @@ export class PrismaUserRepository implements UserRepository {
       }
     })
 
-    console.log('achei um user', user)
-
     if (!user) {
       return await this.dbClient.create({
         data: {
