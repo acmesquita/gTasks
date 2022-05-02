@@ -35,6 +35,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 32px;
+  height: 100px;
+}
+
+.flex1 {
+  flex: 1;
 }
 
 .itemText {
@@ -56,6 +61,23 @@
 
 .itemText > input:checked + label {
   text-decoration: line-through;
+}
+
+.itemUser {
+  display: flex;
+  align-items: center;
+  margin-left: 4%;
+  margin-top: 8px;
+  gap: 8px;
+  color: #575c78;
+  font-family: sans-serif;
+  /* font-style: italic; */
+}
+
+.itemUser > img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 
 .divider {
