@@ -17,23 +17,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(response.status).json(response.data)
 
   } else {
-    res.status(200).json({ tasks: [
-      {
-        id: '1234',
-        contant: "Marcar Academia",
-        avatarUrl: "https://github.com/acmesquita.png",
-        createdAt: "02/05/2022",
-        done: false,
-        name: "Catharina Mesquita"
-      },
-      {
-        id: '3456',
-        contant: "Marcar pra sair para o cinema",
-        avatarUrl: "https://github.com/acmesquita.png",
-        createdAt: "02/05/2022",
-        done: false,
-        name: "Catharina Mesquita"
-      }
-    ]})
+    const response = await api.get('/tasks')
+
+    res.status(200).json(response.data)
   }
 }

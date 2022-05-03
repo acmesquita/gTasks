@@ -1,10 +1,18 @@
 import { Request, Response } from "express";
 import { TaskDTO } from "../@types/task-dto";
 import { CreateTask } from "../service/create-task";
+import { ListTasks } from "../service/list-tasks";
 import { present } from "../validations/present";
 
 export class TasksController {
   constructor(){
+  }
+
+  async list(req: Request, res: Response) {
+    const listTasks = new ListTasks()
+    const tasks = await listTasks.list()
+
+    res.json(tasks)
   }
   
   async create(req:Request, res: Response) {

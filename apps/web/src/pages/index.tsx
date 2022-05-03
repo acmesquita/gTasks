@@ -8,7 +8,7 @@ import styles from '../styles/home.module.css';
 
 type Task = {
   id: string
-  contant: string
+  content: string
   done: boolean
   createdAt: string
   name: string
@@ -36,7 +36,8 @@ export default function Home() {
     console.log('Data', data)
     const response = await apiLocal.post('/tasks', data)
 
-    alert(JSON.stringify(response.data, null, 2))
+
+    setTasks(old => [...old, response.data.task])
   }
 
   return (
@@ -78,7 +79,7 @@ export default function Home() {
                     <div className={styles.flex1}>
                       <div className={styles.itemText}>
                         <input type="checkbox" name="tasks1" id="tasks1" />
-                        <label htmlFor='tasks1'>{task.contant}</label>
+                        <label htmlFor='tasks1'>{task.content}</label>
                       </div>
                       <div className={styles.itemUser}>
                         <img src={task.avatarUrl} alt={task.name} />
