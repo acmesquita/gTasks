@@ -8,7 +8,7 @@ export class LocalFindUser implements FindUser{
     private userRepository: UserRepository
   ){}
 
-  async find(id: string): Promise<User> {
+  async find(id: string): Promise<User | null> {
     
     if (!id) {
       throw new InvalidParams()

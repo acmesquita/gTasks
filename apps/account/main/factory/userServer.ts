@@ -18,7 +18,7 @@ export function getUserServer() {
     },
     Find: async (call) => {
       const { id } = call.request
-      const user = await findUser(id)
+      const user = await findUser(id as string)
       if (user) {
         call.write(user)
       }
