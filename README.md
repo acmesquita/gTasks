@@ -22,7 +22,7 @@ Sua principal estrutura pode ser demonstrada abaixo:
 
 ### Tasks
 
-Sistema que irá gerenciar as atividades dos usuários, tendo como principais funções:
+Sistema que irá gerenciar as tarefas dos usuários, tendo como principais funções:
 
 - Registrar uma nova atividade informando uma descrição para a atividade, o id e o nome do cliente.
 - Atualizar se a atividade foi concluída
@@ -57,3 +57,34 @@ Sistema que será responsável tanto pela visualização quanto da comunicação
 **Listagem**
 
 <img src="https://reactjsexample.com/content/images/2020/03/React-Ant-Design-Todo-List.png" />
+
+
+### BFF
+
+Sistema simples que faz intermedio entre a API e a aplicação Web, possibilitando que exista uma comunicação, mas também seja possível realizar tratativas no meio do caminho.
+
+Para facilitar, esse sistema estará imbutido ao framework Next na parte de api que ele fornece, facilitando também acessos.
+
+## Organização do projeto
+
+O projeto está seguindo o padrão do monorepo, e como framework o [turborepo](https://turborepo.org/) da Vercel.
+A principal motivação para utilizar desse padrão é a facilidade de organização de projetos auxiliares que
+facilmente se comunicam entre os projetos, por exemplo o projeto de lint que fica compartilhado para todos os projetos de aplicação sem precisar configurar essa parte neles.
+
+Além do aspecto organizacional, onde todos os projeto estarão em um único repositório e conseguirem conversar entre si,
+um outro motivo foi a facilidade de criação de novos projetos.
+
+
+### Outras tecnologias
+
+Nesse projeto está sendo utilizado:
+
+- gRPC: comunicação entre as aplicações _Account_ e _Tasks_
+- REST: comunicação entre as aplicações _Web_ e _Api_
+- NextJS: gerenciamento do frontend (telas, rotas) e do _BFF_
+- Typescript: Linguagem base uitilizada em todas as aplicações
+- Turborepo: sistema de gerenciamento entre aplicações
+- Prisma (ORM): gerenciamento do banco de dados e interface de comunicação
+- Jest: geração dos testes de todas as aplicações
+
+
