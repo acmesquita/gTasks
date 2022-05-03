@@ -9,6 +9,16 @@ export class PrismaUserRepository implements UserRepository {
     private readonly dbClient: PrismaClient["user"]
   ){}
 
+  async find(id: string): Promise<User | null> {
+   const user = await this.dbClient.findUnique({
+     where: {
+       id
+     }
+   })
+
+   return user
+  }
+
   async create(userDTO: UserDTO): Promise<User | null> {
     const user = await this.dbClient.findFirst({
       where: {
