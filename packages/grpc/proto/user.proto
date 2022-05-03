@@ -4,6 +4,11 @@ package userPackage;
 
 service User {
   rpc Create (UserRequest) returns (stream UserResponse) {}
+  rpc Find (UserIdRequest) returns (stream UserResponse) {}
+}
+
+message UserIdRequest {
+  string id = 1;
 }
 
 message UserRequest {

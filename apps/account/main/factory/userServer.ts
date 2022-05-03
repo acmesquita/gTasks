@@ -15,6 +15,9 @@ export function getUserServer() {
         call.write(user)
       }
       call.end()
+    },
+    Find: async (call) => {
+      call.end()
     }
   } as UserHandlers)
   return server;
