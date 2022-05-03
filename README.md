@@ -87,4 +87,7 @@ Nesse projeto está sendo utilizado:
 - Prisma (ORM): gerenciamento do banco de dados e interface de comunicação
 - Jest: geração dos testes de todas as aplicações
 
+### Preview
+
+![Peek 2022-05-03 18-41](https://user-images.githubusercontent.com/15862643/166571228-a3591b83-8ed8-433f-a3b9-e03081a56603.gif)
 
