@@ -15,6 +15,7 @@ export async function createUser(request: Request): Promise<Response> {
   
     return await createUserUseCase.create(request)
   } catch (error) {
+    console.log(error)
     throw new Error('Deu errado')
   }
 

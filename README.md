@@ -88,3 +88,19 @@ Nesse projeto está sendo utilizado:
 - Jest: geração dos testes de todas as aplicações
 
 
+## Getting Started
+
+Instalação das dependências
+
+```
+yarn install
+```
+
+Rodar o projeto
+
+```
+yarn dev
+```
+
+Acessar: http://localhost:3000
+

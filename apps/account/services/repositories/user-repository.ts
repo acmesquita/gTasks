@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../../main/config/database/generated/prisma-client-js'
 import { UserDTO } from "../../domain/dto/user-dto";
 import { User } from "../../domain/models/user";
 import { UserRepository } from "../../domain/repositories/user-repository";

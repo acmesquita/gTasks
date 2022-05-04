@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import React from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
@@ -74,7 +75,7 @@ export default function Home() {
             <hr className={styles.divider} />
             {tasks.map((task) => {
               return (
-                <>
+                <React.Fragment key={task.id}>
                   <li className={styles.listItem}>
                     <div className={styles.flex1}>
                       <div className={styles.itemText}>
@@ -91,7 +92,7 @@ export default function Home() {
                     </div>
                   </li>
                   <hr className={styles.divider} />
-                </>
+                </React.Fragment>
               )
             })}
           </ul>

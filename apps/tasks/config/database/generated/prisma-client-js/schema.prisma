@@ -1,0 +1,17 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./generated/prisma-client-js"
+}
+
+model Task {
+  id        String   @id
+  content   String
+  done      Boolean  @default(false)
+  createdAt DateTime @updatedAt
+  userId    String
+}
