@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { api } from '../../lib/api'
+import { api } from '../../../lib/api'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {

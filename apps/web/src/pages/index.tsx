@@ -3,7 +3,7 @@ import React from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { BtnAdd, BtnDel, Form, TextField } from 'ui';
+import { BtnAdd, BtnDel, Checkbox, Form, TextField } from 'ui';
 import { apiLocal } from '../lib/api';
 import styles from '../styles/home.module.css';
 
@@ -39,6 +39,19 @@ export default function Home() {
 
 
     setTasks(old => [...old, response.data.task])
+  }
+
+  async function markDone(idTaks: string) {
+    const response = await apiLocal.patch(`/tasks/${idTaks}`, {})
+
+    setTasks(old => {
+      return old.map(task => {
+        if (task.id === idTaks) {
+          task.done = response.data.task.done
+        }
+        return task
+      })
+    })
   }
 
   return (
@@ -79,8 +92,11 @@ export default function Home() {
                   <li className={styles.listItem}>
                     <div className={styles.flex1}>
                       <div className={styles.itemText}>
-                        <input type="checkbox" name="tasks1" id="tasks1" />
-                        <label htmlFor='tasks1'>{task.content}</label>
+                        <Checkbox
+                          checked={task.done}
+                          onClick={async () => await markDone(task.id)}
+                        />
+                        <label htmlFor={task.id}>{task.content}</label>
                       </div>
                       <div className={styles.itemUser}>
                         <img src={task.avatarUrl} alt={task.name} />

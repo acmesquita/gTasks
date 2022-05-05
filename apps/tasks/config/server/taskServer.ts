@@ -28,6 +28,19 @@ export const getTaskServer = () => {
       }finally {
         call.end()
       }
+    },
+    MarkDone: async (call) => {
+      try {
+        const { id } = call.request
+        const task = await controller.markToDone(id as string)
+        if (task) {
+          call.write(task)
+        }
+      }catch(err) {
+        console.log(err)
+      }finally {
+        call.end()
+      }
     }
   } as TaskHandlers)
 

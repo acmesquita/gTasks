@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { TaskDTO } from "../@types/task-dto";
 import { CreateTask } from "../service/create-task";
 import { ListTasks } from "../service/list-tasks";
+import { MarkDone } from "../service/mark-done";
 import { present } from "../validations/present";
 
 export class TasksController {
@@ -45,6 +46,18 @@ export class TasksController {
     function validateParams(name: any, avatar_url: any, content: any) {
       return present(name) || present(avatar_url) || present(content)
     }
+  }
+
+  async mark(req:Request, res: Response) {
+    const { id } = req.params
+    const service = new MarkDone()
+    const task = await service.mark(id as string)
+
+    return res.json({
+      task: {
+        ...task
+      }
+    })
   }
 
 }

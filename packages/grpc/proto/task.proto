@@ -5,9 +5,14 @@ package taskPackage;
 service Task {
   rpc Create (TaskRequest) returns (stream TaskResponse) {}
   rpc List (Empty) returns (stream TasksResponse) {}
+  rpc MarkDone (TaskIdResquest) returns (stream TaskResponse) {}
 }
 
 message Empty {}
+
+message TaskIdResquest {
+  string id = 1;
+}
 
 message TaskRequest {
   string name = 1;
