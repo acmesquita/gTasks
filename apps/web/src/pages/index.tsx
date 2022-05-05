@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Tasks Manager</title>
+        <title>gTasks</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.header}>
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         <div className={styles.listWrapper}>
-          <h2 className={styles.listTitle}>Todo</h2>
+          <h2 className={styles.listTitle}>Tasks</h2>
           <ul className={styles.list}>
             <hr className={styles.divider} />
             {tasks.map((task) => {

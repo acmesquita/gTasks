@@ -32,7 +32,7 @@ export default function Login(){
         <div className={styles.card}>
           <div className={styles.title}>
             <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="" />
-            <h1>Tasks Manager</h1>
+            <h1>gTasks</h1>
           </div>
           <BtnGithub onClick={() => signIn('github')}/>
         </div>
