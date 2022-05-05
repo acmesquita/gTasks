@@ -34,11 +34,10 @@ export default function Home() {
       name: session?.user?.name,
       avatarUrl: session?.user?.image
     }
-    console.log('Data', data)
     const response = await apiLocal.post('/tasks', data)
 
 
-    setTasks(old => [...old, response.data.task])
+    setTasks(old => [response.data.task, ...old])
   }
 
   async function markDone(idTaks: string) {

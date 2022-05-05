@@ -26,7 +26,6 @@ export class TaskController {
 
     const data = tasks.map(task => {
       const user = users.find(user => user.id === task.userId)
-      console.log(task)
       return {
         id: task.id,
         content: task.content,
