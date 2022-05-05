@@ -1,4 +1,4 @@
-# Manager tasks
+# gTasks
 
 Sistema para gerenciamento de tarefas.
 
