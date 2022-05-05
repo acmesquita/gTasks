@@ -89,8 +89,7 @@ Nesse projeto está sendo utilizado:
 
 ### Preview
 
-![Peek 2022-05-05 17-28](https://user-images.githubusercontent.com/15862643/167020246-3e23ecc1-ac59-4648-b6fb-9586518b0ca5.gif)
-
+![Peek 2022-05-05 17-52](https://user-images.githubusercontent.com/15862643/167023638-2ed9481c-9fdd-4460-8bea-2b1862b78feb.gif)
 
 ## Getting Started
 
