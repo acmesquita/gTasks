@@ -41,6 +41,17 @@ export const getTaskServer = () => {
       }finally {
         call.end()
       }
+    },
+    Delete: async (call) => {
+      try {
+        const { id } = call.request
+        await controller.delete(id as string)
+        call.write({})
+      }catch(err) {
+        console.log(err)
+      }finally {
+        call.end()
+      }
     }
   } as TaskHandlers)
 

@@ -4,6 +4,7 @@ import { RequestDTO } from "../@types/request-dto"
 import { User } from "../@types/user"
 import { CreateUserService } from "../service/create-new-user"
 import { CreateTaskService } from "../service/create-task"
+import { DeleteTaskService } from "../service/delete-taks"
 import { FindUsersService } from "../service/find-users"
 import { ListAllTasksService } from "../service/list-all-tasks"
 import { MarkDoneTaskService } from "../service/mark-done-task"
@@ -109,5 +110,13 @@ export class TaskController {
       name: '',
       avatarUrl: '',
     }
+  }
+
+  async delete(id: string): Promise<TaskResponse> {
+    const service = new DeleteTaskService()
+    
+    await service.delete(id)
+    
+    return {}
   }
 }

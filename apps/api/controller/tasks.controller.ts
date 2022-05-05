@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { TaskDTO } from "../@types/task-dto";
 import { CreateTask } from "../service/create-task";
+import { DeleteTask } from "../service/delete-task";
 import { ListTasks } from "../service/list-tasks";
 import { MarkDone } from "../service/mark-done";
 import { present } from "../validations/present";
@@ -60,4 +61,11 @@ export class TasksController {
     })
   }
 
+  async delete(req:Request, res: Response) {
+    const { id } = req.params
+    const service = new DeleteTask()
+    await service.delete(id as string)
+
+    return res.status(204)
+  }
 }

@@ -10,5 +10,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   
     res.status(response.status).json(response.data)
 
+  } else if (req.method === 'DELETE') {
+    const { id } = req.query
+  
+    const response = await api.delete(`/tasks/${id}`)
+  
+    res.status(response.status)
   }
 }

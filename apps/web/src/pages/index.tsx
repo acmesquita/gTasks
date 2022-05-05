@@ -40,17 +40,22 @@ export default function Home() {
     setTasks(old => [response.data.task, ...old])
   }
 
-  async function markDone(idTaks: string) {
-    const response = await apiLocal.patch(`/tasks/${idTaks}`, {})
+  async function markDone(idTask: string) {
+    const response = await apiLocal.patch(`/tasks/${idTask}`, {})
 
     setTasks(old => {
       return old.map(task => {
-        if (task.id === idTaks) {
+        if (task.id === idTask) {
           task.done = response.data.task.done
         }
         return task
       })
     })
+  }
+
+  async function deleteTask(idTask: string) {
+    setTasks(old => old.filter(task => task.id !== idTask))
+    await apiLocal.delete(`/tasks/${idTask}`, {})
   }
 
   return (
@@ -103,7 +108,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <BtnDel />
+                      <BtnDel onClick={async () => await deleteTask(task.id)}/>
                     </div>
                   </li>
                   <hr className={styles.divider} />

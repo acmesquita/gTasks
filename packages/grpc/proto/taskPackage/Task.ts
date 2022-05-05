@@ -14,6 +14,11 @@ export interface TaskClient extends grpc.Client {
   create(argument: _taskPackage_TaskRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_TaskResponse__Output>;
   create(argument: _taskPackage_TaskRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_TaskResponse__Output>;
   
+  Delete(argument: _taskPackage_TaskIdResquest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_Empty__Output>;
+  Delete(argument: _taskPackage_TaskIdResquest, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_Empty__Output>;
+  delete(argument: _taskPackage_TaskIdResquest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_Empty__Output>;
+  delete(argument: _taskPackage_TaskIdResquest, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_Empty__Output>;
+  
   List(argument: _taskPackage_Empty, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_TasksResponse__Output>;
   List(argument: _taskPackage_Empty, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_TasksResponse__Output>;
   list(argument: _taskPackage_Empty, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_taskPackage_TasksResponse__Output>;
@@ -29,6 +34,8 @@ export interface TaskClient extends grpc.Client {
 export interface TaskHandlers extends grpc.UntypedServiceImplementation {
   Create: grpc.handleServerStreamingCall<_taskPackage_TaskRequest__Output, _taskPackage_TaskResponse>;
   
+  Delete: grpc.handleServerStreamingCall<_taskPackage_TaskIdResquest__Output, _taskPackage_Empty>;
+  
   List: grpc.handleServerStreamingCall<_taskPackage_Empty__Output, _taskPackage_TasksResponse>;
   
   MarkDone: grpc.handleServerStreamingCall<_taskPackage_TaskIdResquest__Output, _taskPackage_TaskResponse>;
@@ -37,6 +44,7 @@ export interface TaskHandlers extends grpc.UntypedServiceImplementation {
 
 export interface TaskDefinition extends grpc.ServiceDefinition {
   Create: MethodDefinition<_taskPackage_TaskRequest, _taskPackage_TaskResponse, _taskPackage_TaskRequest__Output, _taskPackage_TaskResponse__Output>
+  Delete: MethodDefinition<_taskPackage_TaskIdResquest, _taskPackage_Empty, _taskPackage_TaskIdResquest__Output, _taskPackage_Empty__Output>
   List: MethodDefinition<_taskPackage_Empty, _taskPackage_TasksResponse, _taskPackage_Empty__Output, _taskPackage_TasksResponse__Output>
   MarkDone: MethodDefinition<_taskPackage_TaskIdResquest, _taskPackage_TaskResponse, _taskPackage_TaskIdResquest__Output, _taskPackage_TaskResponse__Output>
 }

@@ -7,6 +7,7 @@ const tasksController = new TasksController()
 router.get('/tasks', tasksController.list)
 router.post('/tasks', tasksController.create)
 router.patch('/tasks/:id/mark', tasksController.mark)
+router.delete('/tasks/:id', tasksController.delete)
 
 export {
   router

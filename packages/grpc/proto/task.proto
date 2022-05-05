@@ -6,6 +6,7 @@ service Task {
   rpc Create (TaskRequest) returns (stream TaskResponse) {}
   rpc List (Empty) returns (stream TasksResponse) {}
   rpc MarkDone (TaskIdResquest) returns (stream TaskResponse) {}
+  rpc Delete (TaskIdResquest) returns (stream Empty) {}
 }
 
 message Empty {}
