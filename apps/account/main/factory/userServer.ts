@@ -1,6 +1,6 @@
 import { grpc, UserHandlers, userPackage } from 'grpc/configUserPackage'
 import { UserDTO } from '../../domain/dto/user-dto';
-import { createUser, findUser } from './userService';
+import { createUser, findAllUser, findUser } from './userService';
 
 export function getUserServer() {
   const server = new grpc.Server()
@@ -21,6 +21,16 @@ export function getUserServer() {
       const user = await findUser(id as string)
       if (user) {
         call.write(user)
+      }
+      call.end()
+    },
+    FindAll: async (call) => {
+      const { ids } = call.request
+      const users = await findAllUser(ids as string[])
+      if (users) {
+        call.write({
+          users
+        })
       }
       call.end()
     }

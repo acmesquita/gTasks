@@ -1,41 +1,39 @@
 import { TaskResponse } from "grpc/proto/taskPackage/TaskResponse"
 import { TasksResponse } from "grpc/proto/taskPackage/TasksResponse"
 import { RequestDTO } from "../@types/request-dto"
-import { User } from "../@types/user"
 import { CreateUserService } from "../service/create-new-user"
 import { CreateTaskService } from "../service/create-task"
-import { FindUserService } from "../service/find-user"
+import { FindUsersService } from "../service/find-users"
 import { ListAllTasksService } from "../service/list-all-tasks"
 
 export class TaskController {
 
   async listAll(): Promise<TasksResponse> {
     const listAllTasksService = new ListAllTasksService()
-    const findUserServide = new FindUserService()
+    const findUserServide = new FindUsersService()
     const tasks = await listAllTasksService.listAll()
+
     
     const userIds = tasks
-      .map(task => task.userId)
-      .filter(function (item, pos, self) {
-        return self.indexOf(item) == pos;
-      })
-
-    const users: User[] = []
-
-    const user = await findUserServide.find(userIds[0])
-    users.push(user)
+    .map(task => task.userId)
+    .filter(function (item, pos, self) {
+      return self.indexOf(item) == pos;
+    })
+    
+    const users = await findUserServide.find(userIds)
 
     const data = tasks.map(task => {
-      const user = users.filter(user => user.id == task.userId)[0]
+      const user = users.find(user => user.id === task.userId)
       return {
         id: task.id,
         content: task.content,
         done: task.done,
-        createdAt: task.createdAt,
+        createdAt: task.createdAt.toLocaleDateString('pt-br'),
         name: user?.name || 'unknown',
         avatarUrl: user?.avatarUrl || 'https://freesvg.org/img/Penguin-Icon.png'
       } as unknown as TaskResponse
     })
+
       
     return {
       tasks: [
@@ -67,7 +65,7 @@ export class TaskController {
           id: task.id,
           content: task.content,
           done: task.done,
-          createdAt: task.createdAt,
+          createdAt: task.createdAt.toLocaleDateString('pt-br'),
           name,
           avatarUrl
         } as unknown as TaskResponse

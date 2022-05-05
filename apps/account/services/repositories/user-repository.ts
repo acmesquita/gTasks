@@ -19,6 +19,18 @@ export class PrismaUserRepository implements UserRepository {
    return user
   }
 
+ async findAll(ids: string[]): Promise<User[] | null> {
+  const user = await this.dbClient.findMany({
+    where: {
+      id: {
+        in: ids
+      }
+    }
+  })
+
+  return user
+ }
+
   async create(userDTO: UserDTO): Promise<User | null> {
     const user = await this.dbClient.findFirst({
       where: {

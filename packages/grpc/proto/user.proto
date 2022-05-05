@@ -5,6 +5,11 @@ package userPackage;
 service User {
   rpc Create (UserRequest) returns (stream UserResponse) {}
   rpc Find (UserIdRequest) returns (stream UserResponse) {}
+  rpc FindAll (UserIdsRequest) returns (stream UsersResponse) {}
+}
+
+message UserIdsRequest {
+  repeated string ids = 1;
 }
 
 message UserIdRequest {
@@ -20,4 +25,8 @@ message UserResponse {
   string id = 1;
   string name = 2;
   string avatar_url = 3;
+}
+
+message UsersResponse {
+  repeated UserResponse users = 1;
 }
