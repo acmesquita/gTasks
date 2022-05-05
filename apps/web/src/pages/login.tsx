@@ -26,7 +26,7 @@ export default function Login(){
   return (
     <>
       <Head>
-        <title>Tasks Manager</title>
+        <title>gTasks</title>
       </Head>
       <main className={styles.main}>
         <div className={styles.card}>

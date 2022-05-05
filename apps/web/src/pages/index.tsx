@@ -67,6 +67,7 @@ export default function Home() {
         <div className={styles.header}>
           <div className={styles.logo}>
             <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="" />
+            <h2>gTasks</h2>
           </div>
           <div className={styles.avatar}>
             <img src={session?.user?.image || ''} alt="" />
