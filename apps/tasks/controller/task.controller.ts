@@ -7,6 +7,7 @@ import { DeleteTaskService } from "../service/delete-taks"
 import { FindUsersService } from "../service/find-users"
 import { ListAllTasksService } from "../service/list-all-tasks"
 import { MarkDoneTaskService } from "../service/mark-done-task"
+import { TaskSerializer } from "../views/task.serializer"
 
 export class TaskController {
 
@@ -14,7 +15,6 @@ export class TaskController {
     const listAllTasksService = new ListAllTasksService()
     const service = new FindUsersService()
     const tasks = await listAllTasksService.listAll()
-
 
     const userIds = tasks
       .map(task => task.userId)
@@ -26,14 +26,7 @@ export class TaskController {
 
     const data = tasks.map(task => {
       const user = users.find(user => user.id === task.userId)
-      return {
-        id: task.id,
-        content: task.content,
-        done: task.done,
-        createdAt: task.createdAt.toLocaleDateString('pt-br'),
-        name: user?.name || 'unknown',
-        avatarUrl: user?.avatarUrl || 'https://freesvg.org/img/Penguin-Icon.png'
-      } as unknown as TaskResponse
+      return TaskSerializer.serialize(task, user)
     })
 
 
@@ -46,11 +39,7 @@ export class TaskController {
   }
 
   async create(params: RequestDTO): Promise<TaskResponse> {
-    const {
-      name,
-      avatarUrl,
-      content,
-    } = params
+    const { name, avatarUrl, content } = params
 
     if (name && avatarUrl && content) {
       const createUserService = new CreateUserService()
@@ -62,25 +51,10 @@ export class TaskController {
           content,
           userId: userCreated.id
         })
-
-        return {
-          id: task.id,
-          content: task.content,
-          done: task.done,
-          createdAt: task.createdAt.toLocaleDateString('pt-br'),
-          name,
-          avatarUrl
-        } as unknown as TaskResponse
+        return TaskSerializer.serialize(task, userCreated)
       }
     }
-    return {
-      id: '',
-      content: '',
-      done: '',
-      createdAt: '',
-      name: '',
-      avatarUrl: '',
-    }
+    return TaskSerializer.empty()
   }
 
   async markToDone(id: string): Promise<TaskResponse> {
@@ -93,23 +67,10 @@ export class TaskController {
       const users = await findUserServide.find([task.userId])
       const user = users[0]
 
-      return {
-        id: task?.id,
-        content: task?.content,
-        done: task?.done,
-        createdAt: task?.createdAt.toLocaleDateString('pt-br'),
-        name: user?.name || 'unknown',
-        avatarUrl: user?.avatarUrl || 'https://freesvg.org/img/Penguin-Icon.png'
-      } as unknown as TaskResponse
+      return TaskSerializer.serialize(task, user)
+
     }
-    return {
-      id: '',
-      content: '',
-      done: '',
-      createdAt: '',
-      name: '',
-      avatarUrl: '',
-    }
+    return TaskSerializer.empty()
   }
 
   async delete(id: string): Promise<TaskResponse> {
@@ -117,6 +78,6 @@ export class TaskController {
     
     await service.delete(id)
     
-    return {}
+    return TaskSerializer.empty()
   }
 }
