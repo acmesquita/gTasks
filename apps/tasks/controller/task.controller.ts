@@ -1,12 +1,14 @@
 import { TaskResponse } from "grpc/proto/taskPackage/TaskResponse"
 import { TasksResponse } from "grpc/proto/taskPackage/TasksResponse"
 import { RequestDTO } from "../@types/request-dto"
-import { CreateUserService } from "../service/create-new-user"
-import { CreateTaskService } from "../service/create-task"
-import { DeleteTaskService } from "../service/delete-taks"
-import { FindUsersService } from "../service/find-users"
-import { ListAllTasksService } from "../service/list-all-tasks"
-import { MarkDoneTaskService } from "../service/mark-done-task"
+import {
+  CreateUserService,
+  CreateTaskService,
+  DeleteTaskService,
+  FindUsersService,
+  ListAllTasksService,
+  MarkDoneTaskService
+} from "../service"
 import { TaskSerializer } from "../views/task.serializer"
 
 export class TaskController {
@@ -62,7 +64,7 @@ export class TaskController {
     const findUserServide = new FindUsersService()
 
     const task = await service.mark(id)
-    
+
     if (task) {
       const users = await findUserServide.find([task.userId])
       const user = users[0]
@@ -75,9 +77,9 @@ export class TaskController {
 
   async delete(id: string): Promise<TaskResponse> {
     const service = new DeleteTaskService()
-    
+
     await service.delete(id)
-    
+
     return TaskSerializer.empty()
   }
 }
