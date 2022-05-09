@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { BtnAdd, BtnDel, Checkbox, Form, TextField } from 'ui';
 import { apiLocal } from '../lib/api';
 import styles from '../styles/home.module.css';
+import Image from 'next/image';
 
 type Task = {
   id: string
@@ -66,7 +67,7 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.logo}>
-            <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="" />
+            <Image src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="Logo" width={50} height={50}/>
             <h2>gTasks</h2>
           </div>
           <div className={styles.avatar}>
