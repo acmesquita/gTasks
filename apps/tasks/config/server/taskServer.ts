@@ -1,59 +1,8 @@
-import { grpc, TaskHandlers, taskPackage } from "grpc/configTaskPackage"
-import { TaskController } from "../../controller/task.controller"
+import { grpc, taskPackage } from "grpc/configTaskPackage"
+import { TaskRouter } from "../../routes/task.routes"
 
 export const getTaskServer = () => {
-  const controller = new TaskController()
   const server = new grpc.Server()
-  server.addService(taskPackage.Task.service, {
-    Create: async (call) => {
-      try {
-        const params = call.request
-
-        const task = await controller.create(params)
-        console.log('task criada.')
-        call.write(task)
-      }catch(err) {
-        console.log(err)
-      }finally {
-        call.end()
-      }
-      
-    },
-    List: async (call) => {
-      try {
-        const tasks = await controller.listAll()
-        call.write(tasks)
-      }catch(err) {
-        console.log(err)
-      }finally {
-        call.end()
-      }
-    },
-    MarkDone: async (call) => {
-      try {
-        const { id } = call.request
-        const task = await controller.markToDone(id as string)
-        if (task) {
-          call.write(task)
-        }
-      }catch(err) {
-        console.log(err)
-      }finally {
-        call.end()
-      }
-    },
-    Delete: async (call) => {
-      try {
-        const { id } = call.request
-        await controller.delete(id as string)
-        call.write({})
-      }catch(err) {
-        console.log(err)
-      }finally {
-        call.end()
-      }
-    }
-  } as TaskHandlers)
-
+  server.addService(taskPackage.Task.service, new TaskRouter())
   return server
 }

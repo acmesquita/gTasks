@@ -1,7 +1,6 @@
 import { TaskResponse } from "grpc/proto/taskPackage/TaskResponse"
 import { TasksResponse } from "grpc/proto/taskPackage/TasksResponse"
 import { RequestDTO } from "../@types/request-dto"
-import { User } from "../@types/user"
 import { CreateUserService } from "../service/create-new-user"
 import { CreateTaskService } from "../service/create-task"
 import { DeleteTaskService } from "../service/delete-taks"
@@ -13,7 +12,7 @@ export class TaskController {
 
   async listAll(): Promise<TasksResponse> {
     const listAllTasksService = new ListAllTasksService()
-    const findUserServide = new FindUsersService()
+    const service = new FindUsersService()
     const tasks = await listAllTasksService.listAll()
 
 
@@ -23,7 +22,7 @@ export class TaskController {
         return self.indexOf(item) == pos;
       })
 
-    const users = await findUserServide.find(userIds)
+    const users = await service.find(userIds)
 
     const data = tasks.map(task => {
       const user = users.find(user => user.id === task.userId)
@@ -58,8 +57,8 @@ export class TaskController {
       const userCreated = await createUserService.create({ name, avatarUrl })
 
       if (userCreated) {
-        const createTask = new CreateTaskService()
-        const task = await createTask.create({
+        const service = new CreateTaskService()
+        const task = await service.create({
           content,
           userId: userCreated.id
         })
@@ -89,6 +88,7 @@ export class TaskController {
     const findUserServide = new FindUsersService()
 
     const task = await service.mark(id)
+    
     if (task) {
       const users = await findUserServide.find([task.userId])
       const user = users[0]
