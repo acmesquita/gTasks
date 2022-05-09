@@ -5,6 +5,12 @@ import { UserRepository } from '../../domain/repositories/user-repository'
 import { LocalCreateUser } from "./local-create-user"
 
 class UserRepositorySpy implements UserRepository {
+  find(id: string): Promise<User> {
+    throw new Error('Method not implemented.')
+  }
+  findAll(ids: string[]): Promise<User[]> {
+    throw new Error('Method not implemented.')
+  }
   async create(userDTO: UserDTO): Promise<User> {
     return {
       id: 'any_id',
@@ -29,7 +35,7 @@ describe('LocalCreateUser', () => {
     const sut = makeSut()
     const userDTO: UserDTO = {
       name: null,
-      avatar_url: null
+      avatarUrl: null
     }
 
     await expect(() => sut.create(userDTO)).rejects.toThrowError(new InvalidParams())
@@ -39,7 +45,7 @@ describe('LocalCreateUser', () => {
     const sut = makeSut()
     const userDTO: UserDTO = {
       name: "any_name",
-      avatar_url: "any_url"
+      avatarUrl: "any_url"
     }
     const user = await sut.create(userDTO)
 

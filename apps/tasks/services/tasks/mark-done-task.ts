@@ -1,5 +1,5 @@
-import { dbClient } from "../config/dbClient";
-import { Task } from "../model/task";
+import { dbClient } from "../../config/dbClient";
+import { Task } from "../../model/task";
 
 export class MarkDoneTaskService {
   async mark(id: string): Promise<Task | null> {

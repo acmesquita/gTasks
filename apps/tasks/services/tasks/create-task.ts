@@ -1,6 +1,6 @@
 import crypto from 'crypto';
-import { Task, TaskDTO } from "../model/task";
-import { dbClient } from '../config/dbClient'
+import { Task, TaskDTO } from "../../model/task";
+import { dbClient } from '../../config/dbClient'
 
 export class CreateTaskService {
   async create(params: TaskDTO): Promise<Task> {

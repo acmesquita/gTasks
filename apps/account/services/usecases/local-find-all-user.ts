@@ -16,8 +16,6 @@ export class LocalFindAllUser implements FindAllUser{
 
     const users = await this.userRepository.findAll(ids)
 
-    console.log('LocalFindAllUser -> find users: ', users?.length)
-
     return users
   }
 }

@@ -1,5 +1,5 @@
-import { User } from "../@types/user";
-import { client } from "../config/userClient/client";
+import { User } from "../../@types/user";
+import { client } from "../../config/userClient/client";
 
 export class FindUsersService {
   async find(ids: string[]): Promise<User[]> {

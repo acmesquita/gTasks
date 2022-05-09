@@ -3,12 +3,12 @@ import { TasksResponse } from "grpc/proto/taskPackage/TasksResponse"
 import { RequestDTO } from "../@types/request-dto"
 import {
   CreateUserService,
+  FindUsersService,
   CreateTaskService,
   DeleteTaskService,
-  FindUsersService,
   ListAllTasksService,
   MarkDoneTaskService
-} from "../service"
+} from "../services"
 import { TaskSerializer } from "../views/task.serializer"
 
 export class TaskController {

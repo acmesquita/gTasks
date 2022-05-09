@@ -1,4 +1,4 @@
-import { dbClient } from '../config/dbClient'
+import { dbClient } from '../../config/dbClient'
 
 export class DeleteTaskService {
   async delete(id: string): Promise<void> {

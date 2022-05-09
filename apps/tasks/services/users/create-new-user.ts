@@ -1,6 +1,6 @@
-import { User } from "../@types/user"
-import { UserDTO } from "../@types/user-dto"
-import { client } from "../config/userClient/client"
+import { User } from "../../@types/user"
+import { UserDTO } from "../../@types/user-dto"
+import { client } from "../../config/userClient/client"
 
 export class CreateUserService {
   async create(params: UserDTO): Promise<User> {
