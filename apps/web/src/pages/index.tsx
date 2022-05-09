@@ -7,15 +7,7 @@ import { BtnAdd, BtnDel, Checkbox, Form, TextField } from 'ui';
 import { apiLocal } from '../lib/api';
 import styles from '../styles/home.module.css';
 import Image from 'next/image';
-
-type Task = {
-  id: string
-  content: string
-  done: boolean
-  createdAt: string
-  name: string
-  avatarUrl: string
-}
+import { Task } from '../@types/task';
 
 export default function Home() {
 
@@ -92,6 +84,18 @@ export default function Home() {
           <h2 className={styles.listTitle}>Tasks</h2>
           <ul className={styles.list}>
             <hr className={styles.divider} />
+            {tasks.length === 0 && (
+              <React.Fragment>
+              <li className={styles.listItem}>
+                <div className={styles.flex1}>
+                  <div className={styles.itemText}>
+                    <label>Carregando...</label>
+                  </div>
+                </div>
+              </li>
+              <hr className={styles.divider} />
+            </React.Fragment>
+            )}
             {tasks.map((task) => {
               return (
                 <React.Fragment key={task.id}>
