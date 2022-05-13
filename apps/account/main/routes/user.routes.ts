@@ -18,7 +18,9 @@ export class UserRoutes implements UserHandlers {
         name: call.request.name,
         avatarUrl: call.request.avatarUrl
       } as UserDTO)
-      call.write(user)
+      if (user) {
+        call.write(user)
+      }
     }catch(err) {
       console.log(err)
     }finally {
@@ -30,7 +32,9 @@ export class UserRoutes implements UserHandlers {
     try {
       const { id } = call.request
       const user = await userService.findUser(id as string)
-      call.write(user)
+      if (user) {
+        call.write(user)
+      }
     }catch(err) {
       console.log(err)
     }finally {
@@ -42,9 +46,11 @@ export class UserRoutes implements UserHandlers {
     try {
       const { ids } = call.request
       const users = await userService.findAllUser(ids as string[])
-      call.write({
-        users
-      })
+      if (users) {
+        call.write({
+          users
+        })
+      }
     }catch(err) {
       console.log(err)
     }finally {
