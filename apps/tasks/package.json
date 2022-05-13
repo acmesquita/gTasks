@@ -7,7 +7,8 @@
   "scripts": {
     "test": "jest -i --passWithNoTests --watch",
     "setup": "npx prisma migrate dev --schema config/database/schema.prisma",
-    "dev": "ts-node config/server"
+    "dev": "ts-node config/server",
+    "start": "ts-node config/server"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

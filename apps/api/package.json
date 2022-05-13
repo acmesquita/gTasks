@@ -5,7 +5,8 @@
   "author": "Catharina Mesquita",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node server.ts"
+    "dev": "ts-node server.ts",
+    "start": "ts-node server.ts"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
