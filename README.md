@@ -103,6 +103,10 @@ Rodar o projeto
 
 ```
 yarn dev
+
+// or
+
+yarn start
 ```
 
 Acessar: http://localhost:3000
