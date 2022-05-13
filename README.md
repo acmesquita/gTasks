@@ -103,9 +103,9 @@ Rodar o projeto
 
 ```
 yarn dev
-
-// or
-
+```
+ou
+```
 yarn start
 ```
 
