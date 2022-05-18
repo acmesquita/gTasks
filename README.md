@@ -93,6 +93,25 @@ Nesse projeto está sendo utilizado:
 
 ## Getting Started
 
+**Pré-install**
+
+Criar um arquivo `.env` nos projetos `apps/account` e `apps/tasks` e adicionar a variável:
+
+```env
+  DATABASE_URL="file:db.db"
+```
+
+No projeto `apps/web`, crie um `.env` apartir do arquivo `.env-example` e preencha as informações:
+
+```env
+GITHUB_ID=
+GITHUB_SECRET=
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=qualquer_coisa
+```
+
+Para criar um app no github, acesse o [link](https://docs.github.com/en/enterprise-cloud@latest/developers/apps/building-github-apps/creating-a-github-app), no final desse tutorial você terá o `GITHUB_ID` e o `GITHUB_SECRET`.
+
 Instalação das dependências
 
 ```
@@ -126,7 +145,7 @@ docker-compose build
 Inicializar os databases
 
 ```
-docker-compose rum --rm tasks yarn setup
+docker-compose run --rm tasks yarn install -W && yarn setup
 ```
 
 Rodar os projetos

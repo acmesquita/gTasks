@@ -1,7 +1,9 @@
+version: '3.0'
+
 services:
   tasks:
     build: .
-    command: bash -c 'yarn install && yarn start'
+    command: bash -c 'yarn install -W && yarn start'
     ports:
       - 3000:3000
     volumes:
