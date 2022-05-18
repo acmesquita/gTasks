@@ -98,6 +98,10 @@ Instalação das dependências
 ```
 yarn install
 ```
+Inicialização dos databases
+```
+yarn setup
+```
 
 Rodar o projeto
 
@@ -115,6 +119,11 @@ Acessar: http://localhost:3000
 
 ```
 docker-compose build
+```
+
+_Na primeira execução, para inicializar os databases_
+```
+docker-compose rum --rm tasks yarn setup
 ```
 
 ```
