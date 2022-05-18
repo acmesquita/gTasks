@@ -154,3 +154,11 @@ docker-compose up
 ```
 
 Acessar: http://localhost:3000
+
+**Em caso de erro de permissão**
+
+Utilize o _rack_
+
+```
+docker-compose run --rm tasks chmod -R 777 .
+```
