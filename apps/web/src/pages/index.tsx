@@ -13,11 +13,15 @@ export default function Home() {
 
   const { data: session } = useSession()
   const [tasks, setTasks] = useState<Task[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(() => {
     apiLocal.get('/tasks')
       .then(response => response.data)
-      .then(data => setTasks(data.tasks))
+      .then(data => {
+        setTasks(data.tasks)
+        setIsLoading(false)
+      })
     
   }, [])
 
@@ -84,12 +88,24 @@ export default function Home() {
           <h2 className={styles.listTitle}>Tasks</h2>
           <ul className={styles.list}>
             <hr className={styles.divider} />
-            {tasks.length === 0 && (
+            {isLoading && (
               <React.Fragment>
               <li className={styles.listItem}>
                 <div className={styles.flex1}>
                   <div className={styles.itemText}>
                     <label>Carregando...</label>
+                  </div>
+                </div>
+              </li>
+              <hr className={styles.divider} />
+            </React.Fragment>
+            )}
+            {tasks.length == 0 && (
+              <React.Fragment>
+              <li className={styles.listItem}>
+                <div className={styles.flex1}>
+                  <div className={styles.itemText}>
+                    <label>Nenhum item registrado</label>
                   </div>
                 </div>
               </li>
