@@ -111,3 +111,14 @@ yarn start
 
 Acessar: http://localhost:3000
 
+**With Docker**
+
+```
+docker-compose build
+```
+
+```
+docker-compose up
+```
+
+Acessar: http://localhost:3000
