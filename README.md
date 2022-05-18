@@ -110,7 +110,7 @@ NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=qualquer_coisa
 ```
 
-Para criar um app no github, acesse o [link](https://docs.github.com/en/enterprise-cloud@latest/developers/apps/building-github-apps/creating-a-github-app), no final desse tutorial você terá o `GITHUB_ID` e o `GITHUB_SECRET`.
+Para criar um app no github, acesse o [link](https://docs.github.com/en/enterprise-cloud@latest/developers/apps/building-github-apps/authenticating-with-github-apps), no final desse tutorial você terá o `GITHUB_ID` e o `GITHUB_SECRET`.
 
 Instalação das dependências
 
