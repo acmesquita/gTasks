@@ -20,8 +20,8 @@ export default function Home() {
       .then(response => response.data)
       .then(data => {
         setTasks(data.tasks)
-        setIsLoading(false)
       })
+    setIsLoading(false)
     
   }, [])
 
@@ -100,7 +100,7 @@ export default function Home() {
               <hr className={styles.divider} />
             </React.Fragment>
             )}
-            {tasks.length == 0 && (
+            {!isLoading && tasks.length == 0 && (
               <React.Fragment>
               <li className={styles.listItem}>
                 <div className={styles.flex1}>

@@ -1,6 +1,7 @@
 services:
   tasks:
     build: .
+    command: bash -c 'yarn install && yarn start'
     ports:
       - 3000:3000
     volumes:

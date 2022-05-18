@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN yarn install
+RUN yarn install -W
 
 CMD ["yarn", "start"]
