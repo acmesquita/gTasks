@@ -1,6 +1,6 @@
-# gTasks
+<h1 align="center">gTasks</h1>
 
-Sistema para gerenciamento de tarefas.
+<p align="center">Sistema para gerenciamento de tarefas.</p>
 
 <img src="./docs/arch.png" />
 
@@ -50,11 +50,13 @@ Sistema que será responsável tanto pela visualização quanto da comunicação
 - Ação de concluir uma atividade
 - Ação de excluir uma atividade
 
-**Login**
+#### Protótipos
+
+> Login
 
 <img src="https://miro.medium.com/max/645/1*Ms4z8nK_xHcyWsqv3d24xA.png" />
 
-**Listagem**
+> Listagem
 
 <img src="https://reactjsexample.com/content/images/2020/03/React-Ant-Design-Todo-List.png" />
 
@@ -87,10 +89,6 @@ Nesse projeto está sendo utilizado:
 - Prisma (ORM): gerenciamento do banco de dados e interface de comunicação
 - Jest: geração dos testes de todas as aplicações
 
-### Preview
-
-![Peek 2022-05-05 17-52](https://user-images.githubusercontent.com/15862643/167023638-2ed9481c-9fdd-4460-8bea-2b1862b78feb.gif)
-
 **Fluxo para a criação de uma task**
 
 ![arch-create-task](https://github.com/acmesquita/gTasks/blob/main/docs/arch-create-task.png)
@@ -116,6 +114,8 @@ NEXTAUTH_SECRET=qualquer_coisa
 
 Para criar um app no github, acesse o [link](https://docs.github.com/en/enterprise-cloud@latest/developers/apps/building-github-apps/authenticating-with-github-apps), no final desse tutorial você terá o `GITHUB_ID` e o `GITHUB_SECRET`.
 
+**Instalação e Rodar os servidores**
+
 Instalação das dependências
 
 ```
@@ -139,7 +139,7 @@ yarn start
 
 Acessar: http://localhost:3000
 
-**With Docker**
+**Com Docker**
 
 Construir a imagem
 ```
@@ -166,3 +166,7 @@ Utilize o _rack_
 ```
 docker-compose run --rm tasks chmod -R 777 .
 ```
+
+### Demonstração
+
+![Peek 2022-05-05 17-52](https://user-images.githubusercontent.com/15862643/167023638-2ed9481c-9fdd-4460-8bea-2b1862b78feb.gif)
