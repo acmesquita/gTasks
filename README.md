@@ -91,7 +91,11 @@ Nesse projeto está sendo utilizado:
 
 ![Peek 2022-05-05 17-52](https://user-images.githubusercontent.com/15862643/167023638-2ed9481c-9fdd-4460-8bea-2b1862b78feb.gif)
 
-## Getting Started
+**Fluxo para a criação de uma task**
+
+![arch-create-task](https://github.com/acmesquita/gTasks/blob/main/docs/arch-create-task.png)
+
+## Iniciando o projeto
 
 **Pré-install**
 
